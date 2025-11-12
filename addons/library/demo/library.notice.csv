@@ -1,0 +1,4 @@
+"id","book_id:id","text","note"
+notice_1,book_1,"Le tournoi des preux est vraiment génial !",5
+notice_2,book_1,"Le tournoi des preux est un peu compliqué à lire, mais l’histoire est extraordinaire.",4
+notice_3,book_2,"Quel plaisir de retrouver Don Benvenuto.",5

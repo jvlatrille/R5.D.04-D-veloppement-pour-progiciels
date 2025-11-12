@@ -1,0 +1,21 @@
+<odoo>
+  <record id="view_form_language" model="ir.ui.view">
+    <field name="name">Language form</field>
+    <field name="model">library.language</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="flag" widget="image"/>
+          </group>
+          <notebook>
+            <page string="Livres dans cette langue">
+              <field name="book_ids" widget="many2many"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

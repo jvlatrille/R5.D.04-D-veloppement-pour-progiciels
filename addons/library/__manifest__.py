@@ -17,8 +17,12 @@ Application de gestion de bibliothèque.
         'security/ir.model.access.csv',
         'views/library_menu.xml',
         'views/book_views.xml',
+        'views/language_views.xml',
+        'views/notice_views.xml',
     ],
     'demo': [
         'demo/demo.xml',
+        'demo/library.book.csv',
+        'demo/library.notice.csv',
     ],
 }

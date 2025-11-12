@@ -1,17 +1,17 @@
+<?xml version="1.0"?>
 <odoo>
   <data>
-    <record id="book_demo_1" model="library.book">
-      <field name="name">Le Petit Prince</field>
-      <field name="isbn">9780156013987</field>
-      <field name="date_published">1943-04-06</field>
-      <field name="active">True</field>
+    <record id="lang_it" model="library.language">
+      <field name="name">Italien</field>
     </record>
-
-    <record id="book_demo_2" model="library.book">
-      <field name="name">L'Étranger</field>
-      <field name="isbn">9782070360024</field>
-      <field name="date_published">1942-05-19</field>
-      <field name="active">True</field>
+    <record id="lang_de" model="library.language">
+      <field name="name">Allemand</field>
+    </record>
+    <record id="book_1_langs" model="library.book">
+      <field name="language_ids" eval="[(4, ref('lang_it')), (4, ref('lang_de'))]"/>
+    </record>
+    <record id="book_2_langs" model="library.book">
+      <field name="language_ids" eval="[(4, ref('lang_it'))]"/>
     </record>
   </data>
 </odoo>
