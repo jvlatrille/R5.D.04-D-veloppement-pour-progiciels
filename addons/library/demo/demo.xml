@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="book_demo_1" model="library.book">
+      <field name="name">Le Petit Prince</field>
+      <field name="isbn">9780156013987</field>
+      <field name="date_published">1943-04-06</field>
+      <field name="active">True</field>
+    </record>
+
+    <record id="book_demo_2" model="library.book">
+      <field name="name">L'Étranger</field>
+      <field name="isbn">9782070360024</field>
+      <field name="date_published">1942-05-19</field>
+      <field name="active">True</field>
+    </record>
+  </data>
+</odoo>
