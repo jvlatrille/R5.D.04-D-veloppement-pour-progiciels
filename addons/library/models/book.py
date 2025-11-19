@@ -1,17 +1,31 @@
-from odoo import models, fields, api
+# -*- coding: utf-8 -*-
+from odoo import models, fields
+from odoo.exceptions import ValidationError
 
 class Book(models.Model):
-    _inherit = "library.book"
+    _name = 'library.book'
+    _description = 'Les livres de la bibliothèque'
 
-    notice_ids = fields.One2many("library.notice", "book_id", string="Avis")
-    language_ids = fields.Many2many("library.language", string="Langues disponibles")
+    name = fields.Char("Title", required=True)
+    isbn = fields.Char("ISBN")
+    active = fields.Boolean("Actif ?", default=True)
+    date_published = fields.Date("Date published")
+    image = fields.Binary("Cover")
 
-    previous_book_id = fields.Many2one("library.book", string="Livre précédent")
-    next_book_ids = fields.One2many("library.book", "previous_book_id", string="Suites")
-
-    notice_count = fields.Integer(compute="_compute_notice_count", string="Nombre d'avis")
-
-    @api.depends("notice_ids")
-    def _compute_notice_count(self):
+    def button_check_isbn(self):
         for book in self:
-            book.notice_count = len(book.notice_ids)
+            if not book.isbn:
+                raise ValidationError("Le code ISBN est vide.")
+            digits = [int(x) for x in str(book.isbn) if x.isdigit()]
+            if len(digits) != 13:
+                raise ValidationError("ISBN invalide : doit contenir 13 chiffres.")
+
+            total = 0
+            for index, digit in enumerate(digits[:12]):
+                total += digit if index % 2 == 0 else digit * 3
+
+            reste = total % 10
+            cle = 0 if reste == 0 else 10 - reste
+
+            if cle != digits[-1]:
+                raise ValidationError("ISBN invalide.")

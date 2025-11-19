@@ -4,13 +4,22 @@
     <field name="model">library.book</field>
     <field name="arch" type="xml">
       <form>
+        <header>
+            <button name="action_publish"
+                    type="object"
+                    string="Valider"
+                    class="btn btn-primary"
+                    invisible="state == 'published'"/>
+        </header>
         <sheet>
           <notebook>
             <page string="Général">
               <group>
-                <field name="title"/>
+                <field name="name"/>
                 <field name="isbn"/>
                 <field name="date_published"/>
+                <field name="notice_count"/>
+
               </group>
             </page>
             <page string="Relations">
@@ -20,10 +29,11 @@
               </group>
             </page>
             <page string="Avis">
-              <field name="notice_ids" widget="many2many">
-                <list editable="bottom">
+              <field name="notice_ids">
+                <list editable="bottom" string="Avis" model="library.notice">
                   <field name="text"/>
                   <field name="note"/>
+                  <field name="state"/>
                 </list>
               </field>
             </page>

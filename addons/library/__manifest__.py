@@ -19,6 +19,8 @@ Application de gestion de bibliothèque.
         'views/book_views.xml',
         'views/language_views.xml',
         'views/notice_views.xml',
+        'views/book_kanban.xml',
+        'views/language_kanban.xml',
     ],
     'demo': [
         'demo/demo.xml',

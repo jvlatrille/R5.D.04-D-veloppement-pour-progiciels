@@ -1,0 +1,20 @@
+<odoo>
+  <record id="view_language_kanban" model="ir.ui.view">
+    <field name="name">language.kanban</field>
+    <field name="model">library.language</field>
+    <field name="arch" type="xml">
+      <kanban>
+        <templates>
+          <t t-name="kanban-box">
+            <div class="oe_kanban_global_click">
+              <div class="o_kanban_record_body">
+                <field name="flag" widget="image"/>
+                <strong><field name="name"/></strong>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

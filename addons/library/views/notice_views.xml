@@ -9,6 +9,7 @@
             <field name="book_id"/>
             <field name="note"/>
             <field name="text"/>
+            <field name="state" readonly="[('is_librarian', '=', False)]"/>
           </group>
         </sheet>
       </form>
